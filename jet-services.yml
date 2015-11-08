@@ -1,0 +1,13 @@
+maven:
+        build:
+                image:  codeship-springboot-example-maven
+                dockerfile_path: Dockerfile.maven
+        volumes:
+                    - ./tmp:/target
+deploy:
+        build:
+                image: keyholesoftware/codeship-springboot-example
+                dockerfile_path: Dockerfile.package
+        volumes_from:               
+                - maven
+
