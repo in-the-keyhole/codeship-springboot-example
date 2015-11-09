@@ -1,9 +1,6 @@
 FROM java:8
 
-VOLUME /tmp
-VOLUME /target
-
-ADD /target/codeship-springboot-example-1.0-SNAPSHOT.jar app.jar
+ADD /tmp/codeship-springboot-example-1.0-SNAPSHOT.jar /app.jar
 
 # so that it has a file modification time (Docker creates all container files in an "unmodified" state by default)
 RUN bash -c 'touch /app.jar'
